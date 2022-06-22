@@ -1,0 +1,42 @@
+class Bote():
+    def rufe(self, text):
+        print("Ich sage dir: %s" % text)
+
+
+class FreundlicherBote(Bote):
+    def __init__(self, name):
+        self.name = name
+        print("%s ist geboren!!" % self.name)
+
+    def sageHallo(self):
+        print("Hallo, ich bin %s." % self.name)
+
+    def rufe(self, text):
+        print("Ich, %s, sage dir: %s" % (self.name, text))
+
+
+class SchlauerBote(FreundlicherBote):
+    def __init__(self, name):
+        super().__init__(name)
+
+    def merke(self, text):
+        # Durch 'self.' ist die Variable 'text' in der ganzen Klasse und nicht nur in der Funktion gespeichert
+        self.kundgabe = text
+
+    def rufe(self):
+        super().rufe(self.kundgabe)
+
+
+nachricht = "Hilfe"
+# bei Klassen braucht man immer ein Objekt, auf das man Operationen ausführen kann
+hans = FreundlicherBote("Hans")
+peter = FreundlicherBote("Peter")
+uwe = FreundlicherBote("Uwe")
+hans.rufe(nachricht)
+hans.rufe("Es ist 15 Uhr")
+peter.rufe("Der Profi laueft immer noch schraeg!")
+peter.sageHallo()
+
+uwehans = SchlauerBote("Uwehans")
+uwehans.merke("Es ist schönes Wetter heute!")
+uwehans.rufe()
