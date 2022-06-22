@@ -1,0 +1,57 @@
+from turtle import *
+
+def kreisUmTurtle(radius):
+    penup()
+    forward(radius)
+    left(90)
+    pendown()
+    circle(radius)
+    penup()
+    left(90)
+    forward(radius)
+    left(90)
+
+bgcolor("grey")
+_radius = 300
+kleinerRadius = 40
+color_1 = "white"
+color_2 = "black"
+
+fillcolor(color_1)
+begin_fill()
+kreisUmTurtle(_radius)
+end_fill()
+
+forward(_radius)
+left(90)
+fillcolor(color_2)
+begin_fill()
+circle(_radius, 180)
+end_fill()
+left(180)
+fillcolor(color_1)
+begin_fill()
+circle(-_radius/2, 180)
+end_fill()
+fillcolor(color_2)
+begin_fill()
+circle(_radius/2, 180)
+end_fill()
+
+left(90)
+penup()
+forward(_radius/2)
+pendown()
+fillcolor(color_1)
+begin_fill()
+kreisUmTurtle(kleinerRadius)
+end_fill()
+left(90)
+
+penup()
+forward(_radius)
+pendown()
+fillcolor(color_2)
+begin_fill()
+kreisUmTurtle(kleinerRadius)
+end_fill()
