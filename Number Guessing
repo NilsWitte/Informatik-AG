@@ -1,0 +1,30 @@
+import random
+
+solution = random.randint(1, 100)
+last_tip = 0
+tries = 0
+while last_tip != solution:
+    # der Befehl try versucht, etwas auszuführen
+    try:
+        # int wandelt den input in einen integer um
+        last_tip = int(input("Gib die Nummer ein: "))
+    # except fängt Fehler ab
+    # ValueError tritt auf, wenn ein ungültiger Wert für etwas übergeben wurde
+    except ValueError:
+        tries += 1
+        print("Pech gehabt du Dulli. Du musst Zahlen eingeben!")
+        # der Befehl continue lässt das Programm wieder bei while anfangen
+        continue
+    if last_tip > 100:
+        print("Die Zahl, die du eingibst, muss zwischen 1 und 100 liegen!")
+    # tries += 1 ist das Gleiche wie tries = tries + 1
+    tries += 1
+    if last_tip > solution and last_tip < 101:
+        print("Tipp zu groß")
+    elif last_tip < solution:
+        print("Tipp zu klein")
+
+else:
+    print("Du hast gewonnen!")
+    # str wandelt die in tries gespeicherte Zahl in einen string um (ähnlich wie bei int oben)
+    print("Deine Versuche: " + str(tries))
