@@ -1,0 +1,77 @@
+wegliste = [
+    ("AB", 78),
+    ("BA", 78),
+    ("AF", 78),
+    ("FA", 78),
+    ("BC", 53),
+    ("CB", 53),
+    ("BE", 70),
+    ("EB", 70),
+    ("CD", 134),
+    ("DC", 134),
+    ("DE", 49),
+    ("ED", 49),
+    ("DO", 52),
+    ("OD", 52),
+    ("EF", 68),
+    ("FE", 68),
+    ("FG", 107),
+    ("GF", 107),
+    ("GO", 103),
+    ("OG", 103),
+    ("GH", 80),
+    ("HG", 80),
+    ("GM", 108),
+    ("MG", 108),
+    ("HI", 71),
+    ("IH", 71),
+    ("IM", 153),
+    ("MI", 153),
+    ("IJ", 52),
+    ("JI", 52),
+    ("JK", 110),
+    ("KJ", 110),
+    ("KM", 102),
+    ("MK", 102),
+    ("KL", 106),
+    ("LK", 106),
+    ("LN", 73),
+    ("NL", 73),
+    ("MN", 54),
+    ("NM", 54),
+    ("ON", 113),
+    ("NO", 113)
+]
+
+A = ["B", "F"]
+B = ["A", "C", "E"]
+C = ["B", "D"]
+D = ["C", "E", "O"]
+E = ["B", "D", "F"]
+F = ["A", "G"]
+G = ["F", "H", "M", "O"]
+H = ["G", "I"]
+I = ["H", "J", "M"]
+J = ["I", "K"]
+K = ["J", "L", "M"]
+L = ["K", "N"]
+M = ["I", "K", "N"]
+N = ["L", "M", "O"]
+O = ["D", "G", "N"]
+
+
+besuchtePunkte = []
+listeAllerNichtGegangenenWege = []
+listeErledigterWege = []
+ziel_erreicht = False
+momentanMoeglicheWege = []
+
+startpunkt = "D"
+zielpunkt = "K"
+besuchtePunkte.append(startpunkt)
+
+while ziel_erreicht == False:
+    for weg in wegliste:
+        if startpunkt in wegliste[weg][0]:
+            momentanMoeglicheWege.append(wegliste[weg])
+    print(momentanMoeglicheWege)
