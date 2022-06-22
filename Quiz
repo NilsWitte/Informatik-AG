@@ -1,0 +1,30 @@
+class Quiz:
+    def __init__(self):
+        self.questions = []
+        self.score = 0
+
+    def frage(self, frage, loesung):
+        antwort = input(frage + "? ")
+        if antwort != loesung:
+            print("Deine Antwort war falsch!")
+            self.score -= 1
+        else:
+            print("Deine Antwort war richtig!")
+            self.score += 1
+
+    def addQuestion(self, question, solution):
+        # question und solution in Klammern zu setzen, speichert diese als einen Eintrag als tuple in der Liste 'self.questions'
+        self.questions.append((question, solution))
+
+    def play(self):
+        for eintrag in self.questions:
+            self.frage(eintrag[0], eintrag[1])
+        print("Quiz is vorbei. Dein Score ist %s!" % self.score)
+
+
+quiz = Quiz()
+
+quiz.addQuestion("Wie viele Weihnachtsbäume werden in Deutschland pro Jahr verkauft", "30000000")
+quiz.addQuestion("Wie viele Liter Bier werden in Deutschland pro Kopf jährlich getrunken", "100")
+quiz.addQuestion("Wie lang ist der Begattungsapparat der 15 cm langen Bananenschnecke", "80")
+quiz.addQuestion("Wie viele Buchstaben hat das hawaiianische Alphabet", "12")
