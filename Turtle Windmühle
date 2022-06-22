@@ -1,0 +1,36 @@
+from turtle import *
+import time
+def dreieck(laenge):
+    forward(laenge)
+    left(120)
+    left(72)
+    forward(laenge)
+    left(120)
+    left(72)
+    forward(laenge)
+    left(120)
+    left(72)
+
+def windmuehldreieck(farbe, laenge):
+    fillcolor(farbe)
+    begin_fill()
+    dreieck(laenge)
+    end_fill()
+
+def windmuehle():
+    windmuehldreieck("red", laenge)
+    windmuehldreieck("blue", laenge)
+    windmuehldreieck("green", laenge)
+    windmuehldreieck("yellow", laenge)
+    windmuehldreieck("black", laenge)# tracer(False), while(clear), update(),hideturtle()
+
+laenge = 250
+
+tracer(False)
+
+while True:
+    clear()
+    windmuehle()
+    left(0.3)
+    update()
+    time.sleep(0.0001)
