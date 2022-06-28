@@ -21,6 +21,12 @@ wegliste = {
     "O": {"D": 52, "G": 103, "N": 113},
 }
 
+liste_fuer_wege_zu_den_punkten = {
+    # Man erreicht den Punkt "A", indem man die Strecke [A] geht, die die Länge 0 hat
+    "A": {"strecke": [A], "länge": 0},
+}
+
+
 besuchtliste = []
 
 erledigte_wegliste = {}
@@ -36,4 +42,3 @@ while ziel_erreicht == False and kuerzester_Weg_gefunden == False:
         minimum_eintrag = wegliste["D"][eintrag]
         if wegliste["D"][eintrag] > wegliste["D"][eintrag + 1]:
             minimum_eintrag = wegliste["D"][eintrag + 1]
-    
