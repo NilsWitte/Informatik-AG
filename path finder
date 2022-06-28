@@ -1,0 +1,39 @@
+startpunkt = "D"
+zielpunkt = "K"
+ziel_erreicht = False
+kuerzester_Weg_gefunden = False
+
+wegliste = {
+    "A": {"B": 78, "F": 78},
+    "B": {"A": 78, "C": 53, "E": 70},
+    "C": {"B": 53, "D": 134},
+    "D": {"C": 134, "E": 49, "O": 52},
+    "E": {"B": 70, "D": 49, "F": 68},
+    "F": {"A": 78, "E": 68, "G": 107},
+    "G": {"F": 107, "H": 80, "M": 108, "O": 103},
+    "H": {"G": 80, "I": 71},
+    "I": {"H": 71, "J": 52, "M": 153},
+    "J": {"I": 52, "K": 110},
+    "K": {"J": 110, "L": 106, "M": 102},
+    "L": {"K": 106, "N": 73},
+    "M": {"G": 108, "I": 153, "K": 102, "N": 54},
+    "N": {"L": 73, "M": 54, "O": 113},
+    "O": {"D": 52, "G": 103, "N": 113},
+}
+
+besuchtliste = []
+
+erledigte_wegliste = {}
+
+
+# trage startknoten mit gesamtstrecke 0, haken und [startknoten] in wegliste ein
+besuchtliste.append(("D", (("C", 134), ("E", 49), ("O", 52))))
+
+print(besuchtliste)
+while ziel_erreicht == False and kuerzester_Weg_gefunden == False:
+    for eintrag in wegliste["D"][eintrag[1]]:
+        print("eintrag: %s" % eintrag)
+        minimum_eintrag = wegliste["D"][eintrag]
+        if wegliste["D"][eintrag] > wegliste["D"][eintrag + 1]:
+            minimum_eintrag = wegliste["D"][eintrag + 1]
+    
